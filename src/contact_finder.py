@@ -4,7 +4,7 @@ from urllib.parse import urlparse
 import neverbounce_sdk
 
 # --- CONFIGURATION ---
-APOLLO_API_KEY = "YOUR_APOLLO_API_KEY"
+APOLLO_API_KEY = "YOUR_APOLO_API_KEY"
 NEVERBOUNCE_API_KEY = "YOUR_NEVERBOUNCE_API_KEY"
 COMPANIES_FILE = "companies.json"
 OUTPUT_FILE = "verified_employees.json"
