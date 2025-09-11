@@ -1,0 +1,82 @@
+[
+    {
+        "group_name": "Large Tech Companies in California",
+        "rationale": "Large tech companies in California are known for their high hiring volume and willingness to adopt new technologies to improve efficiency.  They also have the budget for premium recruitment solutions. ",
+        "google_search_terms": [
+            "tech companies in San Francisco",
+            "tech companies in Mountain View",
+            "tech companies in Palo Alto",
+            "tech companies in Santa Clara",
+            "tech companies in San Jose",
+            "software companies in San Francisco",
+            "technology companies in Silicon Valley",
+            "IT companies in San Francisco",
+            "hiring managers in San Francisco",
+            "recruitment agencies in San Francisco"
+        ]
+    },
+    {
+        "group_name": "Mid-size Tech Companies in Texas",
+        "rationale": "Mid-size tech companies in Texas are rapidly growing, requiring efficient recruitment solutions to keep up with hiring demands. They are also likely to be open to new technologies for cost savings.",
+        "google_search_terms": [
+            "tech companies in Austin",
+            "tech companies in Dallas",
+            "tech companies in Houston",
+            "software companies in Austin",
+            "technology companies in Dallas",
+            "IT companies in Austin",
+            "hiring managers in Austin",
+            "recruitment agencies in Austin",
+            "startup companies in Austin",
+            "software developers in Austin"
+        ]
+    },
+    {
+        "group_name": "HR Consulting Firms in New York City",
+        "rationale": "HR consulting firms in NYC often work with many clients, so efficiency is paramount. Automating recruitment will significantly improve their service offerings and increase revenue.",
+        "google_search_terms": [
+            "HR consulting firms in New York City",
+            "recruitment consulting firms in NYC",
+            "HR agencies in New York",
+            "headhunting firms in Manhattan",
+            "executive search firms in New York",
+            "talent acquisition firms in NYC",
+            "HR tech companies in New York",
+            "staffing agencies in New York City",
+            "HR solutions providers in NYC",
+            "recruiting firms in New York"
+        ]
+    },
+    {
+        "group_name": "Financial Services Companies in London",
+        "rationale": "Financial services companies in London are known for high hiring volumes and a need for efficient, compliant processes. Automating recruitment can save time and reduce risks.",
+        "google_search_terms": [
+            "financial services companies in London",
+            "banking companies in London",
+            "investment banks in London",
+            "hedge funds in London",
+            "asset management firms in London",
+            "insurance companies in London",
+            "recruiters in London",
+            "HR managers in London",
+            "headhunters in London",
+            "finance jobs in London"
+        ]
+    },
+    {
+        "group_name": "E-commerce Companies in Seattle",
+        "rationale": "E-commerce companies in Seattle are experiencing rapid growth and require efficient talent acquisition strategies. Automating recruitment will improve their speed and effectiveness.",
+        "google_search_terms": [
+            "e-commerce companies in Seattle",
+            "online retail companies in Seattle",
+            "amazon suppliers in Seattle",
+            "tech companies in Seattle",
+            "startups in Seattle",
+            "software developers in Seattle",
+            "hiring managers in Seattle",
+            "recruiters in Seattle",
+            "HR departments in Seattle",
+            "talent acquisition in Seattle"
+        ]
+    }
+]
