@@ -110,17 +110,3 @@ def run_data_pipeline(linkedin_filepath, places_filepath, industry_to_find, coun
         print(f"\n✅ Successfully saved {len(final_merged_data)} unique companies to '{output_filename}'.")
     else:
         print("\nNo data to save after merging.")
-
-if __name__ == "__main__":
-    # Define file paths and filtering criteria
-    linkedin_filepath = "LinkedIn_company_information.json"
-    places_filepath = "companies.json"
-    output_filename = "final_merged_companies.json"
-    
-    industry_to_find = "Information Technology & Services"
-    country_to_find = "IN"
-
-    # Run the entire data processing pipeline with a single function call
-    run_data_pipeline(linkedin_filepath, places_filepath, industry_to_find, country_to_find, output_filename)
-
-
