@@ -1,9 +1,9 @@
-from . import config
 import requests
 import os
 import time
 import json
 from urllib.parse import quote_plus
+from . import config
 
 
 def scrape_google_places(search_term):
@@ -24,7 +24,7 @@ def scrape_google_places(search_term):
     next_page_token = None
     
     # Loop to handle pagination, fetching up to 3 pages (60 results).
-    page_num = 3
+    page_num = 1
     for i in range(page_num):
         url = f"https://maps.googleapis.com/maps/api/place/textsearch/json?query={encoded_term}&key={config.GOOGLE_PLACES_API_KEY}"
         
@@ -85,20 +85,8 @@ def scrape_google_places(search_term):
                         "rating": result.get("rating")
                     }
                     complete_data.append(full_record)
-                
+            
             except requests.exceptions.RequestException as e:
                 print(f"⚠️ Error fetching details: {e}")
-    # if complete_data:
-    #     filename = "companies.json"
-    #     with open(filename, "w") as f:
-    #         json.dump(complete_data, f, indent=4)
-    #     print(f"\n✅ Successfully saved {len(complete_data)} companies to '{filename}'")
-    # else:
-    #     print("\nNo companies found.")
+                
     return complete_data
-
-if __name__ == "__main__":
-    search_term = "IT staffing companies near Boston"
-    companies_data = scrape_google_places(search_term)
-    
-    
