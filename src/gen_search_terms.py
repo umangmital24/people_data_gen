@@ -1,8 +1,9 @@
 from typing import List, Dict, Any
-from . import config
-from langchain_google_genai import ChatGoogleGenerativeAI
+# from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_community.chat_models import ChatOllama
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.pydantic_v1 import BaseModel, Field, ValidationError
+from . import config
 
 class TargetGroupWithTerms(BaseModel):
     """Target group with rationale and search terms."""
@@ -16,15 +17,28 @@ class LeadPlan(BaseModel):
         description="A list of 5-10 target groups with rationale and Google Places search terms."
     )
 
-llm = ChatGoogleGenerativeAI(
-    model="gemini-1.5-flash",
-    google_api_key=config.GEMINI_API_KEY,
-    convert_system_message_to_human=True
-)
+def generate_lead_generation_plan(product_description: str, model_name: str = "deepseek") -> List[Dict[str, Any]]:
+    """
+    Generate target groups and search terms for lead generation using an LLM.
 
-def generate_lead_generation_plan(product_description: str) -> List[Dict[str, Any]]:
-    """Generate target groups + search terms for lead generation (Google Places only)."""
-    print("🤖 Asking Gemini to generate a detailed lead generation plan (Google Places only)...")
+    Args:
+        product_description (str): A description of the product or service.
+        model_name (str): The name of the LLM model to use (e.g., "deepseek").
+
+    Returns:
+        List[Dict[str, Any]]: A list of dictionaries, where each dictionary
+                               contains the group name, rationale, and search terms.
+    """
+    if model_name == "deepseek":
+        print(f"🤖 Asking Ollama ({model_name}) to generate a detailed lead generation plan...")
+        llm = ChatOllama(model=model_name, base_url=config.OLLAMA_BASE_URL)
+    # else:
+    #     print(f"🤖 Asking Gemini ({model_name}) to generate a detailed lead generation plan...")
+    #     llm = ChatGoogleGenerativeAI(
+    #         model=model_name,
+    #         google_api_key=config.GEMINI_API_KEY,
+    #         convert_system_message_to_human=True
+    #     )
 
     structured_llm = llm.with_structured_output(LeadPlan)
 
@@ -39,8 +53,8 @@ def generate_lead_generation_plan(product_description: str) -> List[Dict[str, An
         explaining why this group is a high-potential customer segment.
         - Google Places search terms must be city-level or sub-region-specific (avoid broad regions like "USA" or "North America").
         - Prefer to include multiple relevant cities or hubs for each group. For example, instead of "fintech companies USA", generate terms like:
-          "fintech companies in New York", "fintech companies in San Francisco", "fintech companies in Austin", instead of "fintech companies Delhi NCR", generate terms like:
-          "fintech companies in Noida", "fintech companies in Gurugram", "fintech companies in Delhi".
+            "fintech companies in New York", "fintech companies in San Francisco", "fintech companies in Austin", instead of "fintech companies Delhi NCR", generate terms like:
+            "fintech companies in Noida", "fintech companies in Gurugram", "fintech companies in Delhi".
         - Provide 8-10 distinct Google Places search phrases per group to maximize coverage.
         - Do not add extra commentary, notes, or formatting outside of the required fields.
         """),
@@ -81,5 +95,4 @@ def generate_lead_generation_plan(product_description: str) -> List[Dict[str, An
         })
 
     print(f"✅ Gemini generated {len(plan_list)} target groups.")
-    print(plan_list)
     return plan_list

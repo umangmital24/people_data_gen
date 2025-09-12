@@ -10,6 +10,9 @@ APOLLO_API_KEY = os.getenv("APOLLO_API_KEY")
 NEVERBOUNCE_API_KEY = os.getenv("NEVERBOUNCE_API_KEY")
 GEMINI_API_KEY=os.getenv("GEMINI_API_KEY")
 HUGGINGFACE_API_TOKEN = os.getenv("HUGGINGFACE_API_TOKEN") # Note: This token is not currently used but is kept for future expansion.
+# --- LLM & Ollama Settings ---
+# Example: http://localhost:11434 if running Ollama locally
+OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
 
 # --- Pipeline Settings ---
 PRODUCT_DESCRIPTION = "An AI-powered platform that automates ESG (Environmental, Social, and Governance) compliance reporting for mid-sized manufacturing companies (50-750 employees). It saves time, reduces audit risk, and helps companies improve their sustainability scores."
